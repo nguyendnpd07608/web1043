@@ -7,10 +7,31 @@
     <title>Bài 2</title>
   </head>
   <body>
-    <p>Họ và tên</p>
+    <p>Đổi đơn vị đất đai</p>
     <script>
-      document.write("Le Huu Nam");
-      console.log("Le Huu Nam");
+      let metter = 3600;
+      let sao = metter / 360; // 3600 đổi ra bằng 10 sào
+      let mau = sao / 10;
+      document.write(
+        "số mét vuông đất:" +
+          metter +
+          "=" +
+          sao +
+          "sào đất" +
+          "=" +
+          mau +
+          "mẫu đất"
+      );
+      console.log(
+        "số mét vuông đất:" +
+          metter +
+          "=" +
+          sao +
+          "sào đất" +
+          "=" +
+          mau +
+          "mẫu đất"
+      );
     </script>
   </body>
 </html>

@@ -7,7 +7,28 @@
     <title>Bài 4</title>
   </head>
   <body>
-    <h1>Bai 4</h1>
-    <script src="app.js"></script>
+    <script>
+      const theList = [
+        "Lauren",
+        "Kevin",
+        true,
+        35,
+        null,
+        undefined,
+        ["one", "two"],
+      ];
+      theList.pop();
+      console.log(theList);
+      theList.shift();
+      console.log(theList);
+      theList.unshift("first");
+      console.log(theList);
+      theList.splice(4, 0, "Hello world");
+      console.log(theList);
+      theList.splice(3, 0, "Middle");
+      console.log(theList);
+      theList.push("Last");
+      console.log(theList);
+    </script>
   </body>
 </html>
