@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 8</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <video class="video">
+        <source src="Video.mp4" />
+      </video>
+      <div class="btn">
+        <button onclick="playPause()">Play/Pause</button>
+        <button onclick="stopVideo()">Stop</button>
+        <button onclick="upVolume()">Tăng âm lượng</button>
+        <button onclick="downVolume()">Giảm âm lượng</button>
+        <button class="loop" onclick="autoPlay()">Lặp lại</button>
+      </div>
+</div>
+<script>
+  const video = document.querySelector(".video");
+  function playPause() {
+    video.paused ? video.play() : video.pause();
+  }
+  function stopVideo() {
+
+    video.pause();
+  }
+  var loop = document.querySelector(".loop");
+  var autoVideo = false;
+  function autoPlay() {
+
+    video.loop = !autoVideo;
+
+    loop.innerHTML = video.loop ? "Không lặp lại" : "Lặp lại";
+
+    autoVideo = !autoVideo;
+  }
+  function upVolume() {
+
+    video.volume = video.volume < 1 ? video.volume + 0.1 : video.volume;
+  }
+  function downVolume() {
+
+    video.volume = video.volume > 0 ? video.volume - 0.1 : video.volume;
+  }
+</script>
+</body>
+
+</html>
