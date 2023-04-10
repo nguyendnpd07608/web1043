@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Danh sách hàng hóa -->
+    <div>
+        <h3>DANH MỤC HÀNG HÓA</h3>
+        <table border="1">
+            <tr>
+                <td>iPhone 13 pro max</td>
+                <td>$2700</td>
+                <td><button onclick="them(this)">Thêm</button></td>
+            </tr>
+            <tr>
+                <td>SAMSUNG Galaxy Z Fplip4</td>
+                <td>$3000</td>
+                <td><button onclick="them(this)">Thêm</button></td>
+            </tr>
+            <tr>
+                <td>OPPO A35</td>
+                <td>$2500</td>
+                <td><button onclick="them(this)">Thêm</button></td>
+            </tr>
+            <tr>
+                <td>NOKIA GII Plus</td>
+                <td>$2800</td>
+                <td><button onclick="them(this)">Thêm</button></td>
+            </tr>
+            <tr>
+                <td>NOKIA 1280</td>
+                <td>$5000</td>
+                <td><button onclick="them(this)">Thêm</button></td>
+            </tr>
+        </table>
+    </div>
+    <!-- Giỏ hàng -->
+    <div>
+        <h3>GIỎ HÀNG CỦA BẠN</h3>
+        <table border="1" id="gio"></table>
+    </div>
+    <!-- Tổng số tiền -->
+    <div>
+        <h3>
+            TỔNG SỐ TIỀN: $<span id="tong">0</span>
+        </h3>
+    </div>
+    <script>
+        function them(obj) {
+            let row = obj.parentElement.parentElement.cloneNode(true);
+            let btnXoa = row.getElementsByTagName("button")[0];
+            btnXoa.innerText = "Xóa";
+            btnXoa.setAttribute("onclick", "xoa(this)");
+            document.getElementById("gio").appendChild(row);
+            tinhTong();
+        }
+        function xoa(obj) {
+            let row = obj.parentElement.parentElement;
+            document.getElementById("gio").removeChild(row);
+            tinhTong();
+        }
+        function tinhTong() {
+            let gio = document.getElementById("gio");
+            let row = gio.getElementsByTagName("tr");
+            let tong = 0;
+            let dem = true;
+            for (let i = 0; i < row.length; i++) {
+                let cells = row[i].getElementsByTagName("td");
+                let price = cells[1].innerText.substr(1);
+                tong += Number(price);
+                dem = false;
+                document.getElementById("tong").innerText = tong;
+            }
+            if (dem) document.getElementById("tong").innerText = 0;
+        }
+    </script>
+</body>
+
+</html>
